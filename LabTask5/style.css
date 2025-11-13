@@ -1,0 +1,273 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+header {
+    background-color: #ffffff;
+    color: #333;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 5px;
+}
+
+.header-content img {
+    width: 50px;
+    height: 50px;
+    padding: 5px;
+    border: 3px solid #919191;
+    border-radius: 50%;
+}
+
+header h1 {
+    font-size: 2.5em;
+    font-variant: small-caps;
+    margin: 0;
+    color: #333;
+}
+
+header p {
+    font-size: 1em;
+    color: #666;
+}
+
+nav {
+    background-color: #ffffff;
+    padding: 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav ul li {
+    margin: 0;
+}
+
+nav ul li a,
+nav ul li strong {
+    display: block;
+    color: #666;
+    text-decoration: none;
+    padding: 10px 30px;
+    transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #f5f5f5;
+}
+
+nav ul li strong {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+body {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "header"
+        "nav"
+        "main"
+        "aside"
+        "footer";
+}
+
+header {
+    grid-area: header;
+}
+
+nav {
+    grid-area: nav;
+}
+
+main {
+    grid-area: main;
+    padding: 20px;
+    background-color: #ffffff;
+}
+
+aside {
+    grid-area: aside;
+    padding: 20px;
+    background-color: #fafafa;
+}
+
+footer {
+    grid-area: footer;
+}
+
+@media (min-width: 768px) {
+    body {
+        grid-template-columns: 3fr 1fr;
+        grid-template-areas:
+            "header header"
+            "nav nav"
+            "main aside"
+            "footer footer";
+        max-width: 85%;
+        margin: 0 auto;
+    }
+}
+
+article {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+}
+
+article h2 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 1.8em;
+}
+
+article time {
+    color: #999;
+    font-size: 0.9em;
+}
+
+article img {
+    margin: 15px 0;
+    max-width: 100%;
+    height: 25em;
+    border-radius: 5px;
+}
+
+article p {
+    margin: 15px 0;
+    text-align: justify;
+    color: #555;
+}
+
+article a {
+    color: #666;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+article a:hover {
+    text-decoration: underline;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #e0e0e0;
+    margin: 30px 0;
+}
+
+aside h3,
+aside h4 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+aside h3 {
+    font-size: 1.5em;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 5px;
+}
+
+aside h4 {
+    font-size: 1.2em;
+    margin-top: 25px;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 5px;
+}
+
+aside ul {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+aside ul li {
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+aside ul li a {
+    color: #555;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+aside ul li a:hover {
+    color: #333;
+}
+
+aside div {
+    background-color: #f5f5f5;
+    color: #333;
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+    margin-top: 20px;
+    border: 1px solid #e0e0e0;
+}
+
+aside div p {
+    margin: 5px 0;
+}
+
+footer {
+    background-color: #ffffff;
+    color: #666;
+    text-align: center;
+    padding: 10px;
+    border-top: 1px solid #e0e0e0;
+}
+
+footer p {
+    margin: 10px 0;
+}
+
+#rights {
+    font-size: 0.8rem;
+}
+
+footer a {
+    color: #666;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+footer a:hover {
+    color: #333;
+}
+
+main>p:last-child {
+    text-align: center;
+    margin-top: 30px;
+}
+
+main>p:last-child a {
+    background-color: #f5f5f5;
+    color: #333;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    border: 1px solid #e0e0e0;
+}
+
+main>p:last-child a:hover {
+    background-color: #e0e0e0;
+}
