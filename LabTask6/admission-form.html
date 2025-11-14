@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>University Admission Form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+
+        form {
+            width: 100%;
+        }
+
+        fieldset {
+            border: 2px solid #e0e0e0;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 5px;
+        }
+
+        legend {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #2c3e50;
+            padding: 0 10px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: 500;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="date"],
+        input[type="file"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin-right: 8px;
+            margin-bottom: 10px;
+        }
+
+        .radio-group,
+        .checkbox-group {
+            margin-bottom: 15px;
+        }
+
+        .radio-group label,
+        .checkbox-group label {
+            display: inline-block;
+            margin-right: 20px;
+            font-weight: normal;
+        }
+
+        .button-group {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        button {
+            padding: 12px 40px;
+            margin: 0 10px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        button[type="submit"] {
+            background-color: #2c3e50;
+            color: white;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #34495e;
+        }
+
+        button[type="reset"] {
+            background-color: #95a5a6;
+            color: white;
+        }
+
+        button[type="reset"]:hover {
+            background-color: #7f8c8d;
+        }
+
+        .required {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>University Admission Form</h1>
+
+        <form action="#" method="post">
+            <fieldset>
+                <legend>Personal Information</legend>
+
+                <label for="fullname">Full Name <span class="required">*</span></label>
+                <input type="text" id="fullname" name="fullname" required maxlength="100" />
+
+                <label for="fathername">Father's Name <span class="required">*</span></label>
+                <input type="text" id="fathername" name="fathername" required maxlength="100" />
+
+                <label for="mothername">Mother's Name <span class="required">*</span></label>
+                <input type="text" id="mothername" name="mothername" required maxlength="100" />
+
+                <label for="dob">Date of Birth <span class="required">*</span></label>
+                <input type="date" id="dob" name="dob" required />
+
+                <label>Gender <span class="required">*</span></label>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="gender" value="male" required /> Male
+                    </label>
+                    <label>
+                        <input type="radio" name="gender" value="female" required />
+                        Female
+                    </label>
+                    <label>
+                        <input type="radio" name="gender" value="other" required /> Other
+                    </label>
+                </div>
+
+                <label for="email">Email Address <span class="required">*</span></label>
+                <input type="email" id="email" name="email" required />
+
+                <label for="phone">Phone Number <span class="required">*</span></label>
+                <input type="text" id="phone" name="phone" required maxlength="15" />
+
+                <label for="address">Permanent Address <span class="required">*</span></label>
+                <textarea id="address" name="address" rows="3" required maxlength="200"></textarea>
+            </fieldset>
+
+            <fieldset>
+                <legend>Academic Information</legend>
+
+                <label for="ssc">SSC/Equivalent Result <span class="required">*</span></label>
+                <input type="text" id="ssc" name="ssc" required maxlength="10" placeholder="e.g., GPA 5.00" />
+
+                <label for="sscyear">SSC Passing Year <span class="required">*</span></label>
+                <input type="text" id="sscyear" name="sscyear" required maxlength="4" placeholder="e.g., 2019" />
+
+                <label for="hsc">HSC/Equivalent Result <span class="required">*</span></label>
+                <input type="text" id="hsc" name="hsc" required maxlength="10" placeholder="e.g., GPA 5.00" />
+
+                <label for="hscyear">HSC Passing Year <span class="required">*</span></label>
+                <input type="text" id="hscyear" name="hscyear" required maxlength="4" placeholder="e.g., 2021" />
+
+                <label for="department">Preferred Department <span class="required">*</span></label>
+                <select id="department" name="department" required>
+                    <option value="">-- Select Department --</option>
+                    <option value="cse">Computer Science & Engineering</option>
+                    <option value="eee">Electrical & Electronics Engineering</option>
+                    <option value="civil">Civil Engineering</option>
+                    <option value="mechanical">Mechanical Engineering</option>
+                    <option value="bba">Business Administration</option>
+                    <option value="english">English</option>
+                    <option value="law">Law</option>
+                </select>
+
+                <label>Areas of Interest</label>
+                <div class="checkbox-group">
+                    <label>
+                        <input type="checkbox" name="interest" value="programming" />
+                        Programming
+                    </label>
+                    <label>
+                        <input type="checkbox" name="interest" value="research" />
+                        Research
+                    </label>
+                    <label>
+                        <input type="checkbox" name="interest" value="sports" /> Sports
+                    </label>
+                    <label>
+                        <input type="checkbox" name="interest" value="arts" /> Arts
+                    </label>
+                    <label>
+                        <input type="checkbox" name="interest" value="debate" /> Debate
+                    </label>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Document Upload</legend>
+
+                <label for="photo">Passport Size Photo <span class="required">*</span></label>
+                <input type="file" id="photo" name="photo" accept="image/*" required />
+
+                <label for="transcript">Academic Transcript <span class="required">*</span></label>
+                <input type="file" id="transcript" name="transcript" accept=".pdf,.doc,.docx" required />
+
+                <label for="certificate">SSC/HSC Certificate</label>
+                <input type="file" id="certificate" name="certificate" accept=".pdf,.doc,.docx" />
+            </fieldset>
+
+            <div class="button-group">
+                <button type="submit">Submit Application</button>
+                <button type="reset">Reset Form</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
