@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <style>
+        h1 {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        h2 {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th,
+        td {
+            border: 1px solid rgb(231, 231, 231);
+            padding: 8px;
+            text-align: left;
+        }
+
+        .before-2000 {
+            background-color: #d3d3d3;
+        }
+
+        .after-2000 {
+            background-color: #90EE90;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Library Management System</h1>
+
+    <label for="bookTitle">Book Title:</label>
+    <input type="text" id="bookTitle" placeholder="Enter book title">
+
+    <label for="publicationYear">Publication Year:</label>
+    <input type="text" id="publicationYear" placeholder="Enter publication year">
+
+    <button id="addBookBtn">Add Book</button>
+
+    <div id="errorMessage" class="error" style="display: none;"></div>
+
+    <h2>Book List</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Year</th>
+            </tr>
+        </thead>
+        <tbody id="bookTableBody">
+        </tbody>
+    </table>
+
+    <script>
+        function addBook() {
+            const titleInput = document.getElementById('bookTitle');
+            const yearInput = document.getElementById('publicationYear');
+            const errorMessage = document.getElementById('errorMessage');
+
+            const title = titleInput.value.trim();
+            const year = yearInput.value.trim();
+
+            errorMessage.style.display = 'none';
+            errorMessage.textContent = '';
+
+            // Title validation
+            if (title === '') {
+                showError('Book title cannot be empty.');
+                return;
+            }
+
+            const alphabeticRegex = /^[A-Za-z]+$/;
+            if (!alphabeticRegex.test(title)) {
+                showError('Book title must contain only alphabetic characters.');
+                return;
+            }
+
+            // Year validation
+            const currentYear = new Date().getFullYear();
+            const yearNumber = parseInt(year);
+
+            if (year === '' || isNaN(yearNumber)) {
+                showError('Publication year must be a valid number.');
+                return;
+            }
+
+            if (year.length !== 4) {
+                showError('Publication year must be a four-digit number.');
+                return;
+            }
+
+            if (yearNumber < 1900 || yearNumber > currentYear) {
+                showError(`Publication year must be between 1900 and ${currentYear}.`);
+                return;
+            }
+
+            addBookToTable(title, yearNumber);
+
+            titleInput.value = '';
+            yearInput.value = '';
+        }
+
+        document.getElementById('addBookBtn').addEventListener('click', addBook);
+
+        function showError(message) {
+            const errorMessage = document.getElementById('errorMessage');
+            errorMessage.textContent = message;
+            errorMessage.style.display = 'block';
+        }
+
+        function addBookToTable(title, year) {
+            const tableBody = document.getElementById('bookTableBody');
+            const newRow = document.createElement('tr');
+
+            if (year < 2000) {
+                newRow.className = 'before-2000';
+            } else {
+                newRow.className = 'after-2000';
+            }
+
+            const titleCell = document.createElement('td');
+            titleCell.textContent = title;
+
+            const yearCell = document.createElement('td');
+            yearCell.textContent = year;
+
+            newRow.appendChild(titleCell);
+            newRow.appendChild(yearCell);
+            tableBody.appendChild(newRow);
+        }
+    </script>
+</body>
+
+</html>
